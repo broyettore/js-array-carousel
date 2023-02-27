@@ -10,3 +10,105 @@ body {
     color: #1bfaad;
     font-family: 'Roboto', sans-serif;
 }
+
+/********** COMMON *********/
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+/********** Header ***********/
+
+header > .container {
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+header ul li {
+    padding: 10px;
+    margin: 10px;
+}
+
+/********* MAIN **********/
+
+main {
+    height: calc(100vh - 59px);
+    justify-content: center;
+}
+
+.slider {
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.item {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.show {
+    display: block;
+}
+
+.slider > button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 50px;
+    width: 50px;
+    border: 0;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.prev {
+    left: 1.25rem;
+}
+
+.prev::after {
+    content: "\276E";
+}
+
+.next {
+    right: 1.25rem;
+}
+
+.next::after {
+    content: "\276F";
+}
+
+.prev::after,
+.next::after {
+   line-height: 50px;
+   font-size: 1.5rem;
+}
+
+
+
