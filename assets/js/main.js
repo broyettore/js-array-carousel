@@ -40,13 +40,21 @@ prev.addEventListener("click", () => {
         items[active].classList.remove("show");
         active--;
         items[active].classList.add("show");
+    } else if (active === 0) {
+        items[active].classList.remove("show");
+        active+= 4;
+        items[active].classList.add("show");
     }
-})
+});
 
 next.addEventListener("click", () => {
     if (active < items.length - 1) {
         items[active].classList.remove("show");
         active++;
         items[active].classList.add("show");
+    } else if (active === 4) {
+        items[active].classList.remove("show");
+        active-= 4;
+        items[active].classList.add("show");
     }
-})
+});

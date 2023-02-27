@@ -39,12 +39,13 @@ header > .container {
 }
 
 header h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 header ul li {
     padding: 10px;
     margin: 10px;
+    cursor: pointer;
 }
 
 /********* MAIN **********/
