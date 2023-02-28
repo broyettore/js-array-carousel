@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #1a2037;
-    color: #1bfaad;
+    background-color: #01020b;
+    color: #07f7ee;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -19,7 +19,7 @@ body {
     margin: 0 auto;
 }
 
-button {
+button, img {
     cursor: pointer;
 }
 
@@ -55,61 +55,113 @@ main {
     justify-content: center;
 }
 
-.slider {
-    justify-content: center;
-    width: 100%;
+main > .container {
+    justify-content: space-between;
+}
+
+.ctn-left,
+.ctn-right {
     height: 500px;
-    position: relative;
 }
 
-.item {
+.ctn-left {
+    width: 68%;
+}
+
+.ctn-left .img-ctn {
     display: none;
-    height: 100%;
-    width: 100%;
 }
 
-.item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.show {
+.ctn-left .show {
     display: block;
 }
 
-.slider > button {
+.ctn-right {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.img-ctn {
+    width: 100%;
+    height: 100%;
+}
+
+.ctn-right  .img-ctn {
+    opacity: 0.3;
+}
+
+.ctn-left > .img-ctn > img,
+.ctn-right > .img-ctn > img  {
+    object-fit: cover;
+}
+
+
+.ctn-left > .img-ctn > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-position: bottom left;
+}
+
+.ctn-right > .img-ctn > img {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    object-position: 20% 80%;
+}
+
+.btn-up,
+.btn-down {
     position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+    background-color: darkcyan;
     height: 50px;
     width: 50px;
-    border: 0;
     border-radius: 50%;
-    opacity: 0.5;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
-.prev {
-    left: 1.25rem;
+.btn-up{
+    top: -8%;
+    transition: top .40s;
 }
 
-.prev::after {
-    content: "\276E";
+.btn-up::after {
+    content: "\21E7";
 }
 
-.next {
-    right: 1.25rem;
+.btn-down {
+    bottom: -6%;
+    transition: bottom .40s;
 }
 
-.next::after {
-    content: "\276F";
+.btn-down::after {
+    content: "\21E9";
 }
 
-.prev::after,
-.next::after {
-   line-height: 50px;
-   font-size: 1.5rem;
+.btn-up::after,
+.btn-down::after {
+    color: #01020b;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
+.btn-up:hover {
+    top: -13%;
+}
 
+.btn-down:hover {
+    bottom: -12%;
+}
 
+.ctn-right .clear {
+    opacity: 1;
+}

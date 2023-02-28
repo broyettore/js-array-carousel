@@ -1,60 +1,80 @@
 'use strict';
 
-// Creates slider div inside main > .container
-const mainContainer = document.querySelector("main > .container");
-const slider = document.createElement("div");
-slider.classList.add("slider");
-mainContainer.append(slider)
+const mainCtn = document.querySelector(".main > .container"); // selects main container
 
-// Created previous button inside slider div
-const btnPrev = document.createElement("button");
-btnPrev.classList.add("prev");
-slider.append(btnPrev);
+const ctnLeft = document.createElement("div"); // creates container left inside mainCtn
+ctnLeft.classList.add("ctn-left");
+mainCtn.append(ctnLeft);
 
-// Created next button inside slider div
-const btnNext = document.createElement("button");
-btnNext.classList.add("next");
-slider.append(btnNext);
+const ctnRight = document.createElement("div"); // creates container right inside mainCtn
+ctnRight.classList.add("ctn-right");
+mainCtn.append(ctnRight);
 
-const imgs = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"] // images array
-let itemsContent = "";
-let active = 0;
-const selectSlider = document.querySelector(".slider"); // select slider div
+const btnUp = document.createElement("button");
+btnUp.classList.add("btn-up");
+const btnDown = document.createElement("button");
+btnDown.classList.add("btn-down");
+ctnRight.append(btnUp);
+ctnRight.append(btnDown);
 
-// Loops into displaying the images in the array
+const sliderLeft = document.querySelector(".ctn-left"); // selects container left
+const sliderRight = document.querySelector(".ctn-right"); // selects container right
+
+const imgs = [
+    "trip.01",
+    "trip.02",
+    "trip.03",
+    "trip.04",
+    "trip.05"
+];
+
+let imgsList = "";
+let current = 0;
+
+// Loop div containing images
 for (let i = 0; i < imgs.length; i++) {
-    itemsContent += `<div class="item"><img src="assets/img/${imgs[i]}" alt=""></div>`;
+    imgsList += `<div class="img-ctn"><img src="assets/img/${imgs[i]}.jpg" alt=""></div>`
 }
 
-slider.innerHTML += itemsContent; // concat the array images
-document.querySelector(".item").classList.add("show"); 
+// Concat and inserts images into their corresponding container
+sliderLeft.innerHTML += imgsList;
+sliderRight.innerHTML += imgsList;
 
-// Scroll image event
-const prev = document.querySelector(".prev"); // select btnPrev
-const next = document.querySelector(".next"); // select btnNext
+document.querySelector(".ctn-left .img-ctn").classList.add("show");
+document.querySelector(".ctn-right .img-ctn").classList.add("clear");
 
-const items = document.querySelectorAll(".item"); // selects all images containers
+/********************* EVENT to scroll images on click ********************************/ 
 
-prev.addEventListener("click", () => {
-    items[active].classList.remove("show");
+const clickUp = document.querySelector(".btn-up");
+const clickDown = document.querySelector(".btn-down");
 
-    if (active > 0) {
-        active--;
-    } else  {
-        active = imgs.length - 1;
-    }
+const imgCtn = document.querySelectorAll(".ctn-left > .img-ctn");
+const imgCtnRight = document.querySelectorAll(".ctn-right > .img-ctn");
+ 
+clickUp.addEventListener("click", () => {
+    imgCtn[current].classList.remove("show")
+    imgCtnRight[current].classList.remove("clear")
 
-    items[active].classList.add("show");
-});
-
-next.addEventListener("click", () => {
-    items[active].classList.remove("show");
-
-    if (active < items.length - 1) {
-        active++;
+    if (current > 0) {
+        current--;
     } else {
-        active = 0;
-    }
+        current += imgs.length - 1;
+    };
 
-    items[active].classList.add("show");
-});
+    imgCtn[current].classList.add("show")
+    imgCtnRight[current].classList.add("clear")
+})
+
+clickDown.addEventListener("click", () => {
+    imgCtn[current].classList.remove("show")
+    imgCtnRight[current].classList.remove("clear")
+
+    if (current < imgs.length - 1) {
+        current++;
+    } else {
+        current -= imgs.length - 1
+    };
+
+    imgCtn[current].classList.add("show")
+    imgCtnRight[current].classList.add("clear")
+})
