@@ -27,7 +27,7 @@ for (let i = 0; i < imgs.length; i++) {
 }
 
 slider.innerHTML += itemsContent; // concat the array images
-document.querySelector(".item").classList.add("show");
+document.querySelector(".item").classList.add("show"); 
 
 // Scroll image event
 const prev = document.querySelector(".prev"); // select btnPrev
@@ -36,25 +36,25 @@ const next = document.querySelector(".next"); // select btnNext
 const items = document.querySelectorAll(".item"); // selects all images containers
 
 prev.addEventListener("click", () => {
+    items[active].classList.remove("show");
+
     if (active > 0) {
-        items[active].classList.remove("show");
         active--;
-        items[active].classList.add("show");
-    } else if (active === 0) {
-        items[active].classList.remove("show");
-        active+= 4;
-        items[active].classList.add("show");
+    } else  {
+        active = imgs.length - 1;
     }
+
+    items[active].classList.add("show");
 });
 
 next.addEventListener("click", () => {
+    items[active].classList.remove("show");
+
     if (active < items.length - 1) {
-        items[active].classList.remove("show");
         active++;
-        items[active].classList.add("show");
-    } else if (active === 4) {
-        items[active].classList.remove("show");
-        active-= 4;
-        items[active].classList.add("show");
+    } else {
+        active = 0;
     }
+
+    items[active].classList.add("show");
 });
