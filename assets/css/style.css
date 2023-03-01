@@ -79,7 +79,8 @@ main > .container {
 
 .ctn-left {
     width: 68%;
-    animation: ctnLeftFadeIn 1s linear forwards;
+    opacity: 0;
+    animation: ctnLeftFadeIn 1s linear 1s forwards;
 }
 
 @keyframes ctnLeftFadeIn {
@@ -109,7 +110,8 @@ main > .container {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    animation: ctnRightFadeIn 1s linear forwards;
+    opacity: 0;
+    animation: ctnRightFadeIn 1s linear 1s forwards;
 }
 
 @keyframes ctnRightFadeIn {
