@@ -36,6 +36,19 @@ ul {
 
 header > .container {
     justify-content: space-between;
+    animation: headerFadein 1.2s linear forwards;
+}
+
+@keyframes headerFadein {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
 
 header h1 {
@@ -66,7 +79,21 @@ main > .container {
 
 .ctn-left {
     width: 68%;
+    animation: ctnLeftFadeIn 1s linear forwards;
 }
+
+@keyframes ctnLeftFadeIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
 
 .ctn-left .img-ctn {
     display: none;
@@ -82,7 +109,21 @@ main > .container {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    animation: ctnRightFadeIn 1s linear forwards;
 }
+
+@keyframes ctnRightFadeIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
 
 .img-ctn {
     width: 100%;
